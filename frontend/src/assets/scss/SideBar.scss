@@ -1,0 +1,75 @@
+.aside-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 30vh;
+  overflow: auto;
+  background-color: #ffffff !important;
+  border-right: 1px solid #e0e0e0;
+  .sidebar-title {
+    margin: 15px;
+  }
+  
+  .sidebar-title h1 {
+    color: black;
+  }
+  
+  .sidebar-title .Title-highlight {
+    color: #007dfd; 
+  }
+  .p1 {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px;
+    font-weight: bolder;
+    user-select: none;
+  }
+  .lib-sub {
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #282f66;
+    padding-left: 16px;
+    .MuiButton-startIcon{
+      color: #07689f;
+      text-align: left;
+      word-break: break-word; 
+    }
+    .MuiButton-label {
+      text-align: left;
+    }
+    .title {
+      text-align: left;
+      word-break: break-word; 
+    }
+  }
+  .lib-sub:hover{
+    background-color: #d2d2d2;
+  }
+  .lib-sub.active {
+    background-color: #b3d2f6; 
+  }
+  .aside-bar-container {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+  }
+  .playlist{
+    flex: 1;
+    .p1{
+      border-top: 1px solid #e0e0e0;
+    }
+    .lib-sub:hover{
+      background-color: #b3d2f6;
+    }
+  }
+}
+
+@media only screen and (max-width: 970px) {
+  .aside-bar {
+    display: none;
+  }
+}

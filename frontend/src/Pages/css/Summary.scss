@@ -1,0 +1,150 @@
+.main-containersum{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+
+    .main-summary {
+        width: 100%;
+        height: 100%;
+        background-color: #f4f5f5;
+        .summary-heading{
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            padding-top: 30px;
+        }
+        .summary-heading h1{
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            font-weight: 500; 
+            font-style: italic;
+        }
+        
+    
+    .summary-flex{
+        flex: 1; 
+        display: flex;
+        flex-direction: row;
+        // height: 100%;
+        .left-columnsum{
+            flex:1;
+            margin: 20px 10px 0px 30px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            .text-input {
+                margin-top: 20px;
+                width: 90%; /* Adjusted to meet the requirement */
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                align-items: center; /* Center align the items */
+                .summarize-button {
+                    position: static;
+                    bottom: 10px; /* Adjust for desired spacing */
+                    right: 10px; /* Adjust for desired spacing */
+                    align-self: flex-end;
+                    margin-top: -5px;
+                  }
+            }
+            
+            .text-input input[type="textarea"] {
+                width: 100%;
+                height: 40vh;
+                padding: 10px;
+                margin-bottom: 20px;
+                resize: auto;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-family: 'Poppins', sans-serif;
+                box-sizing: border-box;
+                overflow: auto; /* or overflow: scroll; */
+              }
+            .text-input input[type="textarea"]::placeholder {
+                text-align: center;
+                font-weight: 500; 
+                font-style: italic;
+                font-size: 18px;
+              }
+              h3 {
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                position: relative;
+                font-weight: 500;
+              }
+              
+              h3::before,
+              h3::after {
+                content: " —————————————— "; /* Unicode en dash character */
+                // position: absolute;
+                // top: 50%;
+                width: 100%; /* Adjust as needed */
+                height: 1px;
+                // background-color: #ccc;
+              }
+              .file-input {
+                margin-top: 20px;
+                width: 90%; /* Adjusted to meet the requirement */
+                display: flex;
+                justify-content: center; // Added to center the file-upload-container
+                flex-direction: column;
+                align-items: center;
+              
+                .file-upload-container {
+                  width: 100%; /* Adjust width as needed */
+                //   height: 200px; /* Adjust height as needed */
+                  border: 3px dashed #ccc;
+                  border-radius: 10px; /* Ensure a cubical shape */
+                  display: flex;
+                  flex-direction: column; // Changed to stack icon and text vertically
+                  align-items: center; // Added to center the items horizontally
+                  justify-content: center; // Added to center the items vertically
+                  cursor: pointer;
+              
+                  .upload-icon {
+                    font-size: 30px;
+                    color: #2f94fc;
+                    margin-top: 15px;
+                    flex:1;
+                    display: flex;
+                    align-items: baseline;
+                  cursor: pointer;
+                  justify-content: center;
+                  }
+              
+                  .upload-text {
+                    font-size: 18px;
+                    color: #b6b6b6;
+                    flex:1;
+                  cursor: pointer;
+                  text-align: center;
+                  }
+              
+                  input[type="file"] {
+                    opacity: 0; /* Hide the actual file input */
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                  }
+                }
+                .summarize-button {
+                    position: static;
+                    bottom: 10px; /* Adjust for desired spacing */
+                    right: 10px; /* Adjust for desired spacing */
+                    align-self: flex-end;
+                    margin-top: 10px;
+                  }
+              }
+        }
+        .right-columnsum {
+            flex: 1; 
+            margin: 20px 30px 0px 10px;
+            height: 80vh;
+            background-color: #fff;
+        }
+    }
+    }    
+}

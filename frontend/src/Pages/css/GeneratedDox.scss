@@ -1,0 +1,91 @@
+.main-container {
+    height: 100vh;
+    width: 99vw;
+    display: flex; 
+  
+  .sidebar-generatedDox {
+    z-index: inherit;
+    height: 100vh;
+  }
+  
+  .main-generateddox {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    flex-direction: row;
+  
+  
+  .left-column,
+  .right-column {
+    flex: 1; /* Equal width for left and right columns */
+    padding: 20px;
+  }
+  
+  .left-column {
+    background-color: #96C6F7; /* Example background color */
+    .heading-rectangle {
+        background-color: #ffffff; /* White background color */
+        padding: 18px 25px 18px 30px; /* Add padding around the content */
+        display: flex; /* Use flexbox to align items */
+        align-items: center; /* Align items vertically in the center */
+        border-radius: 25px; /* Rounded corners */
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      .heading-rectangle h3,
+      .heading-rectangle h4 {
+        margin: 0; /* Remove default margin */
+         /* Set font weight to normal (not bold) */
+      }
+      
+      .heading-rectangle h4 {
+        margin-left: 10px;
+        font-weight: 500; 
+        color: #282F66;
+      }
+      .chatbot-box{
+        margin-top: 15px;
+        background-color: #ffffff;
+        padding:10px;
+        border-radius: 20px;
+        height: 67vh;
+      }
+      .buttonsdiv-generate{
+        background-color: #ffffff;
+        padding: 15px;
+        margin-top: 15px;
+      }
+  }
+  
+  .right-column {
+    background-color: #f4f5f5; /* Example background color */
+    
+    .buttonsdiv-draft{
+        margin-top: 15px;
+        padding-left: 120px;
+        padding-right: 120px; 
+
+    }
+    }
+  
+  /* Additional styles for contenteditable div */
+  .right-column > .editable-content {
+    border: 1px solid #ccc;
+    background-color: #fff ;
+    padding: 10px;
+    // min-height: 200px;
+    overflow-y: auto;
+    height: 87vh;
+    width: 40vw;
+    justify-content: center;
+    align-items: center; 
+    position: relative; 
+    .loading-icon{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+}
+}
