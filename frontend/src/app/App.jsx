@@ -7,6 +7,8 @@ import Generate from "../Pages/Generate.jsx";
 import GeneratedDox from "../Pages/GeneratedDox.jsx";
 import Dashboard from "../Pages/Dashboard.jsx";
 import Summary from "../Pages/Summary.jsx";
+import Review from "../Pages/Review.jsx";
+import ReviewededDox from "../Pages/ReviewedDox.jsx";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path="/generate" element={<Generate />} />
             <Route path="/generate/:searchQuery" element={<GeneratedDox />} />
             <Route path="/summary" element={<Summary />} />
+            <Route path="/review" element={<Review />} />
+            <Route path="/review/revieweddoc" element={<ReviewededDox />} />
           </Routes>
         </Router>
       </>

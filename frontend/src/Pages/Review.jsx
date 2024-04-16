@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import "./css/Summary.scss";
+import "./css/Review.scss";
 import Button from "@mui/material/Button";
 import SideBar from "../components/SideBar";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdFileDownloadDone } from "react-icons/md";
-import { FaVolumeUp } from "react-icons/fa";
 import axios from "axios";
 import pdfToText from "react-pdftotext";
-import Load from "../assets/img/Rolling@1.25x-1.0s-200px-200px.gif";
+import Imgg from "../assets/img/Group 1918.png";
+import { useNavigate } from "react-router-dom";
 
-const Summary = () => {
+const Review = () => {
+  const navigate = useNavigate();
   const [fileUploaded, setFileUploaded] = useState(false);
   const [inputText, setInputText] = useState("");
-  const [summary, setSummary] = useState("Summary COmes here");
-  const [isLoading, setIsLoading] = useState(false);
-  const [language, setLanguage] = useState("en");
 
   const handleFileUpload = (event) => {
     if (event.target.files.length > 0) {
@@ -44,45 +42,17 @@ const Summary = () => {
     setInputText(event.target.value);
   };
 
-  const handleSummarizeClick = async () => {
-    setIsLoading(true);
+  const handleReviewClick = async () => {
     try {
-      console.log("bhai", inputText);
-      const response = await axios.post("http://localhost:5000/api/summary", {
+      const response = await axios.post("http://localhost:5000/api/review", {
         inputText,
       });
-      setSummary(response.data.content[0].text);
+      navigate(`/review/revieweddoc`, {
+        state: response.data,
+      });
     } catch (error) {
       console.error("Error fetching data:", error);
-    } finally {
-      setIsLoading(false);
     }
-  };
-
-  const handleLanguageChange = async (event) => {
-    setIsLoading(true);
-    const selectedLanguage = event.target.value;
-    setLanguage(selectedLanguage);
-
-    try {
-      const response = await axios.post("http://localhost:5000/api/translate", {
-        text: summary,
-        targetLanguage: selectedLanguage,
-      });
-
-      const translatedSummary = response.data.translatedText;
-      setSummary(translatedSummary);
-    } catch (error) {
-      console.error("Error translating summary:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleTextToSpeech = () => {
-    const utterance = new SpeechSynthesisUtterance(summary);
-    utterance.lang = language;
-    window.speechSynthesis.speak(utterance);
   };
 
   return (
@@ -92,7 +62,7 @@ const Summary = () => {
       </div>
       <div className="main-summary">
         <div className="summary-heading">
-          <h1>Summary</h1>
+          <h1>Review Document</h1>
         </div>
         <div className="summary-flex">
           <div className="left-columnsum">
@@ -101,7 +71,7 @@ const Summary = () => {
                 id="inputText"
                 type="textarea"
                 name="inputText"
-                placeholder="Enter Text to Summarize"
+                placeholder="Enter Text to be Reviewed"
                 value={inputText}
                 onChange={handleTextInputChange}
               />
@@ -117,9 +87,9 @@ const Summary = () => {
                     backgroundColor: "#226AB1",
                   },
                 }}
-                onClick={handleSummarizeClick}
+                onClick={handleReviewClick}
               >
-                Summarize
+                Review
               </Button>
             </form>
             <h3>OR</h3>
@@ -161,39 +131,14 @@ const Summary = () => {
                     backgroundColor: "#226AB1",
                   },
                 }}
-                onClick={handleSummarizeClick}
+                onClick={handleReviewClick}
               >
-                Summarize
+                Review
               </Button>
             </form>
           </div>
-          <div className="right-columnsum">
-            {summary && (
-              <div>
-                <div className="language-dropdown">
-                  <select value={language} onChange={handleLanguageChange}>
-                    <option value="en">English</option>
-                    <option value="es">Spanish</option>
-                    <option value="fr">French</option>
-                    <option value="de">German</option>
-                  </select>
-                  <FaVolumeUp
-                    className="text-to-speech-icon"
-                    onClick={handleTextToSpeech}
-                  />
-                </div>
-                {isLoading ? (
-                  <div className="loading-icon-sum">
-                    <img src={Load} alt="Loading..." />
-                  </div>
-                ) : (
-                  <div className="summary-main">
-                    <h2>Summary:</h2>
-                    <p>{summary}</p>
-                  </div>
-                )}
-              </div>
-            )}
+          <div className="right-columnrev">
+            <img src={Imgg} alt="imae" />
           </div>
         </div>
       </div>
@@ -201,4 +146,4 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+export default Review;

@@ -1,54 +1,60 @@
-.Home-skeleton {
-  height: 100vh;
-  width: 100vw;
-}
 
-.home-music-container {
+
+.templates-container {
   display: flex;
   background: linear-gradient(to bottom, #007bff, #ffffff);
 }
 
-.sidebar-home {
-  /* Adjust width as needed, consider using flexbox for responsiveness */
-  // width: 250px; /* Example width */
+.sidebar-templates {
+  // Adjust width as needed, consider using flexbox for responsiveness
 }
 
-.main-home {
+.main-templates {
   width: 100%;
-  flex: 1;
   display: grid;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
+  align-items: center;
+  justify-content: center;
 }
 
-
-.current-large-banner {
-  position: relative; 
-  justify-content: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90vh;
+.centered-content {
+  text-align: center;
 
   .search-bar {
     margin-top: 20px;
     width: 780px;
   }
 
-  .small-svg {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-}
-@media only screen and (max-width: 970px) {
-  .home-music-container {
-    .sidebar-home{
-      flex: 0;
-    }
-    .main-home{
-      flex: 1;
+  .template-categories {
+    margin-top: 20px;
+
+    button {
+      margin: 0 10px;
+      padding: 8px 16px;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
   }
 }
 
+.template-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.imggg{
+  transform:translate(-200px, 10px)
+}
+
+@media only screen and (max-width: 970px) {
+  .templates-container {
+    .sidebar-templates {
+      flex: 0;
+    }
+    .main-templates {
+      flex: 1;
+    }
+  }
+}

@@ -45,7 +45,7 @@ function SideBar() {
           className={"lib-sub"}
           isActive={isActive}
           Icon={PlagiarismIcon}
-          href={"/home/search"}
+          href={"/review"}
           title={"Review"}
         />
         <SideBarOptions

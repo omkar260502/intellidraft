@@ -28,7 +28,7 @@ function SearchBar() {
         id="searchQueryInput"
         type="text"
         name="searchQueryInput"
-        placeholder="Search"
+        placeholder="Generate Template......."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />

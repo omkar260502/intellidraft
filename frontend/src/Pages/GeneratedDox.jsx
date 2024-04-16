@@ -170,7 +170,11 @@ const GeneratedDox = () => {
                 <img src={Load} alt="Loading..." />
               </div>
             ) : (
-              <p>{draft}</p>
+              <p>
+                {draft.split("\n").map((line, index) => (
+                  <div key={index}>{line}</div>
+                ))}
+              </p>
             )}
           </div>
           <div className="buttonsdiv-draft">
