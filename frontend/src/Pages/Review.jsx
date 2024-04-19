@@ -92,7 +92,9 @@ const Review = () => {
                 Review
               </Button>
             </form>
-            <h3>OR</h3>
+            <div className="or-review">
+              <h3>OR</h3>
+            </div>
             <form className="file-input">
               <div className="file-upload-container">
                 <label htmlFor="upload-file">

@@ -52,7 +52,7 @@ function SideBar() {
           className={"lib-sub"}
           isActive={isActive}
           Icon={GroupAddIcon}
-          href={"/home/search"}
+          href={"/connectlawyer"}
           title={"Connect to Expert Advisor"}
         />
       </div>

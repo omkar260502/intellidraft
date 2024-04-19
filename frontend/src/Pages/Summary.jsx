@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./css/Summary.scss";
 import Button from "@mui/material/Button";
 import SideBar from "../components/SideBar";
@@ -11,10 +12,32 @@ import Load from "../assets/img/Rolling@1.25x-1.0s-200px-200px.gif";
 
 const Summary = () => {
   const [fileUploaded, setFileUploaded] = useState(false);
-  const [inputText, setInputText] = useState("");
-  const [summary, setSummary] = useState("Summary COmes here");
+  const location = useLocation();
+  const draftText = location.state?.draftText || "";
+  const [inputText, setInputText] = useState(draftText);
+  const [summary, setSummary] = useState("Summary Comes here");
   const [isLoading, setIsLoading] = useState(false);
   const [language, setLanguage] = useState("en");
+
+  useEffect(() => {
+    const fetchSummary = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.post("http://localhost:5000/api/summary", {
+          inputText: draftText,
+        });
+        setSummary(response.data.content[0].text);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (draftText) {
+      fetchSummary();
+    }
+  }, [draftText]);
 
   const handleFileUpload = (event) => {
     if (event.target.files.length > 0) {

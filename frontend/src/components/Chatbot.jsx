@@ -1,12 +1,16 @@
-// Chatbot.js
-import React, { useState } from "react";
+import React, { useState, forwardRef, useImperativeHandle } from "react";
 import axios from "axios";
 import "../assets/scss/Chatbox.scss";
 import { FaPaperPlane } from "react-icons/fa";
 
-const Chatbot = () => {
+const Chatbot =  forwardRef((props, ref) => {
   const [userInput, setUserInput] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
+
+  useImperativeHandle(ref, () => ({
+    setUserInput,
+    handleSubmit,
+  }));
 
   const handleUserInput = (e) => {
     setUserInput(e.target.value);

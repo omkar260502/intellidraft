@@ -9,6 +9,7 @@ import Dashboard from "../Pages/Dashboard.jsx";
 import Summary from "../Pages/Summary.jsx";
 import Review from "../Pages/Review.jsx";
 import ReviewededDox from "../Pages/ReviewedDox.jsx";
+import ConnectLawyer from "../Pages/ConnectLawyer.jsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/summary" element={<Summary />} />
             <Route path="/review" element={<Review />} />
             <Route path="/review/revieweddoc" element={<ReviewededDox />} />
+            <Route path="/connectlawyer" element={<ConnectLawyer />} />
           </Routes>
         </Router>
       </>

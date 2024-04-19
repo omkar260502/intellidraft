@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import "./css/GeneratedDox.scss";
 // import Image from "../assets/img/Group 1918.png";
@@ -21,10 +21,11 @@ const GeneratedDox = () => {
   const [isLoading, setIsLoading] = useState(false);
   const response = location.state;
   const editableContentRef = useRef(null);
-  const query = location.pathname.substring(10); // Set default value to an empty string
+  const query = location.pathname.substring(10);
+  const [chatbotRef, setChatbotRef] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("bhaibhai", query);
     setSearchQuery(query);
   }, [query]);
 
@@ -65,6 +66,21 @@ const GeneratedDox = () => {
     }
   };
 
+  const handleSummarize = async () => {
+    const editedDraft = editableContentRef.current.textContent;
+    navigate("/summary", { state: { draftText: editedDraft } });
+  };
+
+  const handleFactsAndFigures = () => {
+    const editedDraft = editableContentRef.current.textContent;
+    if (chatbotRef) {
+      chatbotRef.setUserInput(
+        `Can you provide the facts and figures from the following text? \n\n${editedDraft}`
+      );
+      chatbotRef.handleSubmit();
+    }
+  };
+
   return (
     <div className="main-container">
       <div className="sidebar-generatedDox">
@@ -97,12 +113,14 @@ const GeneratedDox = () => {
                       backgroundColor: "#226AB1",
                     },
                   }}
+                  onClick={handleFactsAndFigures}
                 >
                   Facts & Figures
                 </Button>
               </Grid>
               <Grid item xs={6}>
                 <Button
+                  onClick={handleSummarize}
                   variant="contained"
                   color="primary"
                   startIcon={<AutoAwesomeIcon />}

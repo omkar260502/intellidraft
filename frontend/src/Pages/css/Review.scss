@@ -2,3 +2,21 @@
     flex:1;
     align-self: center;
 }
+
+.or-review{
+    h3::before,h3::after {
+                content: " ——————————— " !important; /* Unicode en dash character */
+                // position: absolute;
+                // top: 50%;
+                width: 100%; /* Adjust as needed */
+                height: 1px;
+                // background-color: #ccc;
+              }
+    h3 {
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                position: relative;
+                font-weight: 500;
+              }
+}
