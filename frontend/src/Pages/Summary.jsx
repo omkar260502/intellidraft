@@ -8,7 +8,7 @@ import { MdFileDownloadDone } from "react-icons/md";
 import { FaVolumeUp } from "react-icons/fa";
 import axios from "axios";
 import pdfToText from "react-pdftotext";
-import Load from "../assets/img/Rolling@1.25x-1.0s-200px-200px.gif";
+import Load from "../assets/img/generateDocumentGIF.gif";
 
 const Summary = () => {
   const [fileUploaded, setFileUploaded] = useState(false);
@@ -207,7 +207,7 @@ const Summary = () => {
                 </div>
                 {isLoading ? (
                   <div className="loading-icon-sum">
-                    <img src={Load} alt="Loading..." />
+                    <img src={Load} height="40vh" alt="Loading..." />
                   </div>
                 ) : (
                   <div className="summary-main">

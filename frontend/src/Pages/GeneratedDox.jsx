@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import "./css/GeneratedDox.scss";
 // import Image from "../assets/img/Group 1918.png";
-import Load from "../assets/img/Rolling@1.25x-1.0s-200px-200px.gif";
+import Load from "../assets/img/generateDocumentGIF.gif";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
@@ -196,7 +196,7 @@ const GeneratedDox = () => {
           >
             {isLoading ? (
               <div className="loading-icon">
-                <img src={Load} alt="Loading..." />
+                <img src={Load} height="40vh" alt="Loading..." />
               </div>
             ) : (
               <p>
