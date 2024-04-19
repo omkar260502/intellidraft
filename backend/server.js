@@ -25,7 +25,6 @@ app.post("/api/messages", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   try {
     const { searchQuery } = req.body;
-    console.log(searchQuery);
     if (!searchQuery) {
       return res.status(400).json({ error: "Search query is required" });
     }
