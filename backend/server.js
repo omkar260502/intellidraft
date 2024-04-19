@@ -38,7 +38,7 @@ app.post("/api/messages", async (req, res) => {
     //       content: [
     //         {
     //           type: "text",
-    //           text: `Generate a legal agreement for ${searchQuery} according to Indian Judiciary System and remove other text like the note and Here's a sample and if the legal document can't be made return cant make draft for this`,
+    //           text: `Generate a legal agreement for ${searchQuery} according to Indian Judiciary System and remove other text like the note and remove here is a draft rent agreement according to the Indian Judiciary System (can't be made return cant make draft for this)`,
     //         },
     //       ],
     //     },
@@ -137,7 +137,7 @@ app.post("/api/summary", async (req, res) => {
     //       ],
     //     },
     //   ],
-    // });/
+    // });
     const msg = {
       id: "msg_01H3ZUmn3UBcf4wcrjnLipiw",
       type: "message",

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../assets/scss/SearchBar.scss";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
@@ -10,16 +9,9 @@ function SearchBar() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post("http://localhost:5000/api/messages", {
-        searchQuery,
-      });
-      navigate(`/generate/${encodeURIComponent(searchQuery)}`, {
-        state: response.data,
-      });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    navigate(`/generate/${encodeURIComponent(searchQuery)}`, {
+      state: searchQuery,
+    });
   };
 
   return (

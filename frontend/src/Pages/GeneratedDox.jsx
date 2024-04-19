@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import "./css/GeneratedDox.scss";
 // import Image from "../assets/img/Group 1918.png";
-import Load from "../assets/img/Rolling@1.25x-1.0s-200px-200px.gif";
+import Load from "../assets/img/generateDocumentGIF.gif";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
@@ -15,25 +15,49 @@ import axios from "axios";
 import Chatbot from "../components/Chatbot";
 
 const GeneratedDox = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQueryy, setsearchQueryy] = useState("");
   const location = useLocation();
   const [draft, setDraft] = useState(""); // State for the generated text
   const [isLoading, setIsLoading] = useState(false);
-  const response = location.state;
+  const searchQuery = location.state;
   const editableContentRef = useRef(null);
-  const query = location.pathname.substring(10);
+  // const query = location.pathname.substring(10);
   const chatbotRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setSearchQuery(query);
-  }, [query]);
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const resp = await axios.post("http://localhost:5000/api/messages", {
+          searchQuery,
+        });
+        if (resp.data && resp.data.content && resp.data.content.length > 0) {
+          setDraft(resp.data.content[0].text);
+        } else {
+          console.error("Response data or content is empty:", resp.data);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  useEffect(() => {
-    if (response && response.content && response.content[0]) {
-      setDraft(response.content[0].text);
+    if (searchQuery) {
+      fetchData();
     }
-  }, [response]);
+  }, [searchQuery, location.state]);
+
+  // useEffect(() => {
+  //   setsearchQueryy(query);
+  // }, [query]);
+
+  // useEffect(() => {
+  //   if (response && response.content && response.content[0]) {
+  //     setDraft(response.content[0].text);
+  //   }
+  // }, [response]);
 
   const handleDownload = () => {
     const editedDraft = editableContentRef.current.textContent;
@@ -52,7 +76,7 @@ const GeneratedDox = () => {
   const handleRegenerate = async () => {
     setIsLoading(true); // Start loading
     try {
-      // console.log("bhai", searchQuery);
+      // console.log("bhai", searchQueryy);
       const response = await axios.post("http://localhost:5000/api/messages", {
         searchQuery,
       });
@@ -82,7 +106,6 @@ const GeneratedDox = () => {
   };
 
   const handleCost = () => {
-    const editedDraft = editableContentRef.current.textContent;
     if (chatbotRef.current) {
       chatbotRef.current.setUserInput(
         `How much cost does it take to make ${searchQuery} full process in indian judiciary`
@@ -196,7 +219,7 @@ const GeneratedDox = () => {
           >
             {isLoading ? (
               <div className="loading-icon">
-                <img src={Load} alt="Loading..." />
+                <img src={Load} height="230px" alt="Loading..." />
               </div>
             ) : (
               <p>
