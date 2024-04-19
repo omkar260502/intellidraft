@@ -94,7 +94,7 @@ const GeneratedDox = () => {
           </div>
           <div className="chatbot-box">
             {/* <img src={Image} alt="jingalala" /> */}
-            <Chatbot />
+            <Chatbot ref={setChatbotRef} />
           </div>
           <div className="buttonsdiv-generate">
             <Grid container spacing={2}>
