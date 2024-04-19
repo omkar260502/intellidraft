@@ -2,43 +2,59 @@ import React from "react";
 import Heading from "../components/Heading.jsx";
 import "./css/AboutUs.scss";
 import SideBar from "../components/SideBar.jsx";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const team = [
   {
     id: 1,
     name: "RASALINA DE",
-    exper: "12 YEAR EXPERIENCE",
+    exper: "Web Dev",
     cover: "https://via.placeholder.com/200",
   },
   {
     id: 2,
     name: "MARK HENERYTIX",
-    exper: "09 YEAR EXPERIENCE",
+    exper: "Android dev",
     cover: "https://via.placeholder.com/200",
   },
   {
     id: 3,
     name: "YLINA PITERSON KIM",
-    exper: "06 YEAR EXPERIENCE",
+    exper: "Devops",
+    cover: "https://via.placeholder.com/200",
+  },
+  {
+    id: 4,
+    name: "YLINA PITERSON KIM",
+    exper: "Devops",
+    cover: "https://via.placeholder.com/200",
+  },
+  {
+    id: 5,
+    name: "YLINA PITERSON KIM",
+    exper: "Devops",
     cover: "https://via.placeholder.com/200",
   },
 ];
 
 const socialIcon = [
   {
-    icon: <i className="fab fa-facebook-f"></i>,
+    icon: <FaFacebookF />,
     name: "facebook",
   },
   {
-    icon: <i className="fab fa-twitter"></i>,
+    icon: <FaTwitter />,
     name: "twitter",
   },
   {
-    icon: <i className="fab fa-youtube"></i>,
-    name: "youtube",
+    icon: <FaLinkedin />,
+    name: "linkedin",
   },
   {
-    icon: <i className="fab fa-instagram"></i>,
+    icon: <FaInstagram />,
     name: "instagram",
   },
 ];
