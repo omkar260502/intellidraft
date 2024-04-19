@@ -15,13 +15,13 @@ import axios from "axios";
 import Chatbot from "../components/Chatbot";
 
 const GeneratedDox = () => {
-  const [searchQueryy, setsearchQueryy] = useState("");
+  // const [searchQueryy, setsearchQueryy] = useState("");
   const location = useLocation();
   const [draft, setDraft] = useState(""); // State for the generated text
   const [isLoading, setIsLoading] = useState(false);
   const searchQuery = location.state;
   const editableContentRef = useRef(null);
-  const query = location.pathname.substring(10);
+  // const query = location.pathname.substring(10);
   const chatbotRef = useRef(null);
   const navigate = useNavigate();
 
@@ -49,9 +49,9 @@ const GeneratedDox = () => {
     }
   }, [searchQuery, location.state]);
 
-  useEffect(() => {
-    setsearchQueryy(query);
-  }, [query]);
+  // useEffect(() => {
+  //   setsearchQueryy(query);
+  // }, [query]);
 
   // useEffect(() => {
   //   if (response && response.content && response.content[0]) {
@@ -78,7 +78,7 @@ const GeneratedDox = () => {
     try {
       // console.log("bhai", searchQueryy);
       const response = await axios.post("http://localhost:5000/api/messages", {
-        searchQueryy,
+        searchQuery,
       });
       const newDraft = response.data.content[0].text;
       setDraft(newDraft); // Update the draft
@@ -108,7 +108,7 @@ const GeneratedDox = () => {
   const handleCost = () => {
     if (chatbotRef.current) {
       chatbotRef.current.setUserInput(
-        `How much cost does it take to make ${searchQueryy} full process in indian judiciary`
+        `How much cost does it take to make ${searchQuery} full process in indian judiciary`
       );
       chatbotRef.current.handleSubmit();
     }
@@ -219,7 +219,7 @@ const GeneratedDox = () => {
           >
             {isLoading ? (
               <div className="loading-icon">
-                <img src={Load} height="40vh" alt="Loading..." />
+                <img src={Load} height="230px" alt="Loading..." />
               </div>
             ) : (
               <p>

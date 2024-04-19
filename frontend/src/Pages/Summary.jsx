@@ -207,7 +207,7 @@ const Summary = () => {
                 </div>
                 {isLoading ? (
                   <div className="loading-icon-sum">
-                    <img src={Load} height="40vh" alt="Loading..." />
+                    <img src={Load} height="230px" alt="Loading..." />
                   </div>
                 ) : (
                   <div className="summary-main">
