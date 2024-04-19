@@ -3,7 +3,7 @@ import axios from "axios";
 import "../assets/scss/Chatbox.scss";
 import { FaPaperPlane } from "react-icons/fa";
 
-const Chatbot =  forwardRef((props, ref) => {
+const Chatbot = forwardRef((props, ref) => {
   const [userInput, setUserInput] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
 
@@ -69,6 +69,6 @@ const Chatbot =  forwardRef((props, ref) => {
       </div>
     </div>
   );
-};
+});
 
 export default Chatbot;
