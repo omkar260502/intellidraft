@@ -6,6 +6,7 @@ import { FaPaperPlane } from "react-icons/fa";
 const Chatbot = forwardRef((props, ref) => {
   const [userInput, setUserInput] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useImperativeHandle(ref, () => ({
     setUserInput,
@@ -25,6 +26,7 @@ const Chatbot = forwardRef((props, ref) => {
       { sender: "user", message: userInput },
     ];
     setChatHistory(updatedChatHistory);
+    setIsLoading(true); // Set loading state to true
 
     try {
       // Send user's input to the backend
@@ -43,8 +45,8 @@ const Chatbot = forwardRef((props, ref) => {
       console.error("Error fetching response from backend:", error);
     }
 
-    // Clear the input box
-    setUserInput("");
+    setIsLoading(false); // Set loading state to false
+    setUserInput(""); // Clear the input box
   };
 
   return (
@@ -55,6 +57,13 @@ const Chatbot = forwardRef((props, ref) => {
             {message.message}
           </div>
         ))}
+        {isLoading && (
+          <div className="message bot typing-indicator">
+            <span className="typing-dot">.</span>
+            <span className="typing-dot">.</span>
+            <span className="typing-dot">.</span>
+          </div>
+        )}
       </div>
       <div className="input-container">
         <input
