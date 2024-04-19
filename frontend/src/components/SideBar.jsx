@@ -55,6 +55,13 @@ function SideBar() {
           href={"/connectlawyer"}
           title={"Connect to Expert Advisor"}
         />
+        <SideBarOptions
+          className={"lib-sub"}
+          isActive={isActive}
+          Icon={GroupAddIcon}
+          href={"/aboutus"}
+          title={"About Us"}
+        />
       </div>
     </aside>
   );
