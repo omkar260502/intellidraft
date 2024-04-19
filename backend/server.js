@@ -38,7 +38,7 @@ app.post("/api/messages", async (req, res) => {
     //       content: [
     //         {
     //           type: "text",
-    //           text: `wo kuch alag dala toh output nhi dene ka Generate a legal agreement for ${searchQuery} according to Indian Judiciary System and remove other text like the note and Here's a sample. and keep the input feilds bold`,
+    //           text: `Generate a legal agreement for ${searchQuery} according to Indian Judiciary System and remove other text like the note and Here's a sample and if the legal document can't be made return cant make draft for this`,
     //         },
     //       ],
     //     },

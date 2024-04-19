@@ -22,7 +22,7 @@ const GeneratedDox = () => {
   const response = location.state;
   const editableContentRef = useRef(null);
   const query = location.pathname.substring(10);
-  const [chatbotRef, setChatbotRef] = useState(null);
+  const chatbotRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -73,11 +73,21 @@ const GeneratedDox = () => {
 
   const handleFactsAndFigures = () => {
     const editedDraft = editableContentRef.current.textContent;
-    if (chatbotRef) {
-      chatbotRef.setUserInput(
+    if (chatbotRef.current) {
+      chatbotRef.current.setUserInput(
         `Can you provide the facts and figures from the following text? \n\n${editedDraft}`
       );
-      chatbotRef.handleSubmit();
+      chatbotRef.current.handleSubmit();
+    }
+  };
+
+  const handleCost = () => {
+    const editedDraft = editableContentRef.current.textContent;
+    if (chatbotRef.current) {
+      chatbotRef.current.setUserInput(
+        `How much cost does it take to make ${searchQuery} full process in indian judiciary`
+      );
+      chatbotRef.current.handleSubmit();
     }
   };
 
@@ -94,7 +104,7 @@ const GeneratedDox = () => {
           </div>
           <div className="chatbot-box">
             {/* <img src={Image} alt="jingalala" /> */}
-            <Chatbot ref={setChatbotRef} />
+            <Chatbot ref={chatbotRef} />
           </div>
           <div className="buttonsdiv-generate">
             <Grid container spacing={2}>
@@ -152,6 +162,7 @@ const GeneratedDox = () => {
                       backgroundColor: "#226AB1",
                     },
                   }}
+                  onClick={handleCost}
                 >
                   Calculate Estimated Cost
                 </Button>
