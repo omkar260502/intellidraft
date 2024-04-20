@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import "./css/Summary.scss";
 import Button from "@mui/material/Button";
@@ -10,7 +10,11 @@ import axios from "axios";
 import pdfToText from "react-pdftotext";
 import Load from "../assets/img/generateDocumentGIF.gif";
 
+let speechSynthesisUtterance = null;
+let speechSynthesisState = "stopped";
+
 const Summary = () => {
+  const summaryRef = useRef("");
   const [fileUploaded, setFileUploaded] = useState(false);
   const location = useLocation();
   const draftText = location.state?.draftText || "";
@@ -38,6 +42,14 @@ const Summary = () => {
       fetchSummary();
     }
   }, [draftText]);
+
+  useEffect(() => {
+    if (summary !== summaryRef.current) {
+      summaryRef.current = summary;
+      speechSynthesisUtterance = null;
+      speechSynthesisState = "stopped";
+    }
+  }, [summary]);
 
   const handleFileUpload = (event) => {
     if (event.target.files.length > 0) {
@@ -103,9 +115,23 @@ const Summary = () => {
   };
 
   const handleTextToSpeech = () => {
-    const utterance = new SpeechSynthesisUtterance(summary);
-    utterance.lang = language;
-    window.speechSynthesis.speak(utterance);
+    if (speechSynthesisState === "playing") {
+      // Pause speech synthesis if currently playing
+      window.speechSynthesis.pause();
+      speechSynthesisState = "paused";
+    } else if (speechSynthesisState === "paused") {
+      // Resume speech synthesis if currently paused
+      window.speechSynthesis.resume();
+      speechSynthesisState = "playing";
+    } else {
+      // Start speech synthesis if stopped
+      speechSynthesisUtterance = new SpeechSynthesisUtterance(
+        summaryRef.current
+      );
+      speechSynthesisUtterance.lang = language;
+      window.speechSynthesis.speak(speechSynthesisUtterance);
+      speechSynthesisState = "playing";
+    }
   };
 
   return (
@@ -202,7 +228,7 @@ const Summary = () => {
                   </select>
                   <FaVolumeUp
                     className="text-to-speech-icon"
-                    onClick={handleTextToSpeech}
+                    onClick={() => handleTextToSpeech(summary, language)}
                   />
                 </div>
                 {isLoading ? (
