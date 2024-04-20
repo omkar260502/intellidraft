@@ -12,6 +12,39 @@ import Load from "../assets/img/generateDocumentGIF.gif";
 
 let speechSynthesisUtterance = null;
 let speechSynthesisState = "stopped";
+const languageOptions = {
+  Hindi: "hi",
+  Bengali: "bn",
+  Telugu: "te",
+  Marathi: "mr",
+  Tamil: "ta",
+  Urdu: "ur",
+  Gujarati: "gu",
+  Kannada: "kn",
+  Odia: "or",
+  Punjabi: "pa",
+  Malayalam: "ml",
+  Assamese: "as",
+  Maithili: "mai",
+  Sindhi: "sd",
+  Konkani: "kok",
+
+  English: "en",
+  Spanish: "es",
+  French: "fr",
+  German: "de",
+  "Chinese (Simplified)": "zh-Hans",
+  Arabic: "ar",
+  Portuguese: "pt",
+  Russian: "ru",
+  Japanese: "ja",
+  Italian: "it",
+  Korean: "ko",
+  Dutch: "nl",
+  Turkish: "tr",
+  Vietnamese: "vi",
+  Polish: "pl",
+};
 
 const Summary = () => {
   const summaryRef = useRef("");
@@ -98,14 +131,12 @@ const Summary = () => {
     setIsLoading(true);
     const selectedLanguage = event.target.value;
     setLanguage(selectedLanguage);
-
     try {
       const response = await axios.post("http://localhost:5000/api/translate", {
         text: summary,
-        targetLanguage: selectedLanguage,
+        language: selectedLanguage,
       });
-
-      const translatedSummary = response.data.translatedText;
+      const translatedSummary = response.data;
       setSummary(translatedSummary);
     } catch (error) {
       console.error("Error translating summary:", error);
@@ -221,10 +252,13 @@ const Summary = () => {
               <div>
                 <div className="language-dropdown">
                   <select value={language} onChange={handleLanguageChange}>
-                    <option value="en">English</option>
-                    <option value="es">Spanish</option>
-                    <option value="fr">French</option>
-                    <option value="de">German</option>
+                    {Object.entries(languageOptions).map(
+                      ([langName, langCode]) => (
+                        <option key={langCode} value={langCode}>
+                          {langName}
+                        </option>
+                      )
+                    )}
                   </select>
                   <FaVolumeUp
                     className="text-to-speech-icon"

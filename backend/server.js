@@ -4,6 +4,7 @@ const axios = require("axios");
 const { Anthropic } = require("@anthropic-ai/sdk");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,9 @@ app.use(cors(corsOptions));
 const PORT = process.env.PORT || 5000;
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
+const key = process.env.MICROSOFT_TRANSLATION_API;
+const endpoint = "https://api.cognitive.microsofttranslator.com";
+const location = "eastus";
 
 const anthropic = new Anthropic({
   apiKey,
@@ -194,22 +198,33 @@ app.post("/api/oneai/summarize", async (req, res) => {
 });
 
 app.post("/api/translate", async (req, res) => {
-  const { text, targetLanguage } = req.body;
-
   try {
-    const response = await axios.post(
-      "https://translation.googleapis.com/language/translate/v2",
-      {
-        q: text,
-        target: targetLanguage,
-        key: GOOGLE_TRANSLATION_API,
-      }
-    );
-
-    const translatedText = response.data.data.translations[0].translatedText;
-    res.json({ translatedText });
+    const response = await axios({
+      baseURL: endpoint,
+      url: "/translate",
+      method: "post",
+      headers: {
+        "Ocp-Apim-Subscription-Key": key,
+        "Ocp-Apim-Subscription-Region": location,
+        "Content-type": "application/json",
+        "X-ClientTraceId": uuidv4().toString(),
+      },
+      params: {
+        "api-version": "3.0",
+        // from: "en",
+        to: req.body.language,
+      },
+      data: [
+        {
+          text: req.body.text, // Get the text to translate from the request body
+        },
+      ],
+      responseType: "json",
+    });
+    console.log("responseee", response.data[0].translations[0].text);
+    res.json(response.data[0].translations[0].text);
   } catch (error) {
-    console.error("Error translating text:", error);
+    console.error("Translation error:", error);
     res.status(500).json({ error: "Translation failed" });
   }
 });
