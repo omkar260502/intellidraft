@@ -1,0 +1,32 @@
+.dashboard {
+    display: flex;
+    height: 100vh; // Set the height to 100% of the viewport height
+  
+    .sidebar-dash {
+      position: fixed; // Make the sidebar fixed
+      left: 0; // Position it on the left
+      top: 0; // Position it at the top
+      height: 100vh; // Set the height to 100% of the viewport height
+      /* Add any other styles for the sidebar */
+    }
+  
+    .main-dash {
+      flex: 1; // Make the main content take up the remaining space
+      margin-left: 30vh; // Adjust the margin-left to account for the sidebar width
+    //   padding: 20px; // Add some padding if desired
+      overflow-y: auto; // Enable vertical scrolling for the main content
+      height: 100vh; // Set the height to 100% of the viewport height
+      /* Add any other styles for the main content */
+    }
+  }
+
+  @media (max-width: 991px) {
+    .main-dash {
+        flex: 1; // Make the main content take up the remaining space
+        margin-left: 0; // Adjust the margin-left to account for the sidebar width
+      //   padding: 20px; // Add some padding if desired
+        overflow-y: auto; // Enable vertical scrolling for the main content
+        // height: 100vh; // Set the height to 100% of the viewport height
+        /* Add any other styles for the main content */
+      }
+  }

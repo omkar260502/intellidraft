@@ -19,7 +19,7 @@ class Login extends React.Component {
           <div className="main-row-text">
             <h1>AI Powered Legal Document Assisant</h1>
             <p>Effortless legal help, powered by AI</p>
-            <Link to={"/generate"} className="btn">
+            <Link to={"/dashboard"} className="btn">
               Try for Free
             </Link>
           </div>
