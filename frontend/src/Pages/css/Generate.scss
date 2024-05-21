@@ -1,51 +1,61 @@
-
-
 .templates-container {
   display: flex;
   background: linear-gradient(to bottom, #007bff, #ffffff);
-}
 
-.sidebar-templates {
-  // Adjust width as needed, consider using flexbox for responsiveness
-}
-
-.main-templates {
-  width: 100%;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
-
-.centered-content {
-  text-align: center;
-
-  .search-bar {
-    margin-top: 20px;
-    width: 780px;
+  .sidebar-templates {
+    // Adjust width as needed, consider using flexbox for responsiveness
   }
 
-  .template-categories {
-    margin-top: 20px;
+  .main-templates {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 
-    button {
-      margin: 0 10px;
-      padding: 8px 16px;
-      background-color: #f0f0f0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    .centered-content {
+      margin-top: 160px;
+      text-align: center;
+
+      .search-bar {
+        margin-top: 20px;
+        width: 780px;
+      }
+
+      .template-categories {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        button {
+          margin: 10px;
+          padding: 12px 20px;
+          background-color: #fff;
+          color: #000;
+          border: none;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 400;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #007bff;
+          }
+        }
+      }
+    }
+
+    .template-image {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .imggg {
+      transform: translate(-200px, 10px);
     }
   }
-}
-
-.template-image {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.imggg{
-  transform:translate(-200px, 10px)
 }
 
 @media only screen and (max-width: 970px) {
@@ -53,6 +63,7 @@
     .sidebar-templates {
       flex: 0;
     }
+
     .main-templates {
       flex: 1;
     }

@@ -1,10 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import "./css/Generate.scss";
 import SearchBar from "../components/SearchBar";
 import imgg from "../assets/svg/image 24.svg";
 
 function Generate() {
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (category) => {
+    navigate(`/generate/${encodeURIComponent(category)}`, {
+      state: category,
+    });
+  };
+
   return (
     <div className="templates-container">
       <div className="sidebar-templates">
@@ -17,11 +26,19 @@ function Generate() {
             <SearchBar />
           </div>
           <div className="template-categories">
-            <button>Loan Agreement</button>
-            <button>Rent Agreement</button>
-            <button>Business</button>
-            <button>Affidavit</button>
-            <button>Other</button>
+            <button onClick={() => handleCategoryClick("Loan Agreement")}>
+              Loan Agreement
+            </button>
+            <button onClick={() => handleCategoryClick("Rent Agreement")}>
+              Rent Agreement
+            </button>
+            <button onClick={() => handleCategoryClick("Business")}>
+              Business
+            </button>
+            <button onClick={() => handleCategoryClick("Affidavit")}>
+              Affidavit
+            </button>
+            <button onClick={() => handleCategoryClick("Other")}>Other</button>
           </div>
         </div>
         <div className="imggg">
