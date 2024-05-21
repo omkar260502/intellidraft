@@ -127,6 +127,24 @@ const Summary = () => {
     }
   };
 
+  const handleFactsClick = async () => {
+    setIsLoading(true);
+    try {
+      console.log("bhai", inputText);
+      const response = await axios.post(
+        "http://localhost:5000/api/factsandfigures",
+        {
+          inputText,
+        }
+      );
+      setSummary(response.data.content[0].text);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleLanguageChange = async (event) => {
     setIsLoading(true);
     const selectedLanguage = event.target.value;
@@ -185,22 +203,40 @@ const Summary = () => {
                 value={inputText}
                 onChange={handleTextInputChange}
               />
-              <Button
-                className="summarize-button"
-                variant="contained"
-                color="primary"
-                sx={{
-                  width: "25%",
-                  justifyContent: "center",
-                  backgroundColor: "#2F94FC",
-                  "&:hover": {
-                    backgroundColor: "#226AB1",
-                  },
-                }}
-                onClick={handleSummarizeClick}
-              >
-                Summarize
-              </Button>
+              <div className="button-row">
+                <Button
+                  className="summarize-button"
+                  variant="contained"
+                  color="primary"
+                  sx={{
+                    width: "25%",
+                    justifyContent: "center",
+                    backgroundColor: "#2F94FC",
+                    "&:hover": {
+                      backgroundColor: "#226AB1",
+                    },
+                  }}
+                  onClick={handleSummarizeClick}
+                >
+                  Summarize
+                </Button>
+                <Button
+                  className="summarize-button"
+                  variant="contained"
+                  color="primary"
+                  sx={{
+                    width: "25%",
+                    justifyContent: "center",
+                    backgroundColor: "#2F94FC",
+                    "&:hover": {
+                      backgroundColor: "#226AB1",
+                    },
+                  }}
+                  onClick={handleFactsClick}
+                >
+                  Facts and Figures
+                </Button>
+              </div>
             </form>
             <h3>OR</h3>
             <form className="file-input">
@@ -229,22 +265,40 @@ const Summary = () => {
                   onChange={handleFileUpload}
                 />
               </div>
-              <Button
-                className="summarize-button"
-                variant="contained"
-                color="primary"
-                sx={{
-                  width: "25%",
-                  justifyContent: "center",
-                  backgroundColor: "#2F94FC",
-                  "&:hover": {
-                    backgroundColor: "#226AB1",
-                  },
-                }}
-                onClick={handleSummarizeClick}
-              >
-                Summarize
-              </Button>
+              <div className="button-row">
+                <Button
+                  className="summarize-button"
+                  variant="contained"
+                  color="primary"
+                  sx={{
+                    width: "25%",
+                    justifyContent: "center",
+                    backgroundColor: "#2F94FC",
+                    "&:hover": {
+                      backgroundColor: "#226AB1",
+                    },
+                  }}
+                  onClick={handleSummarizeClick}
+                >
+                  Summarize
+                </Button>
+                <Button
+                  className="summarize-button"
+                  variant="contained"
+                  color="primary"
+                  sx={{
+                    width: "25%",
+                    justifyContent: "center",
+                    backgroundColor: "#2F94FC",
+                    "&:hover": {
+                      backgroundColor: "#226AB1",
+                    },
+                  }}
+                  onClick={handleFactsClick}
+                >
+                  Facts and Figures
+                </Button>
+              </div>
             </form>
           </div>
           <div className="right-columnsum">
