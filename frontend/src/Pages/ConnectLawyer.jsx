@@ -27,8 +27,7 @@ const ConnectLawyer = () => {
           </h1>
           <div className="lorem">
             <p>
-              Lorem ipsum dolor sit amet consectetur, id tator nunc tristique
-              orci felis condimentum feugiat in ut. Lectus eu denec sed ac.
+            Need legal guidance? Connect with our expert legal advisor for personalized support and tailored advice
             </p>
           </div>
           <button className="talk-button" onClick={togglePopup}>
@@ -43,59 +42,52 @@ const ConnectLawyer = () => {
               <div className="popup-content">
                 {/* Sample card */}
                 <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
+                  <img src="https://lawrato.com/expert_images/thumb/webp/advocate-ravi-jadhav.webp" alt="Lawyer" />
+                  <h3>Advocate Ravi Jadhav</h3>
+                  <p>ravijadha@gmail.com</p>
                 </div>
                 <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
+                  <img src="https://www.iforher.com/wp-content/uploads/2022/07/Women-Lawyers-In-India-Karuna-Nandy.jpg" alt="Lawyer" />
+                  <h3>Kavita Kushal</h3>
+                  <p>kavitaKushal@gmail.com</p>
                 </div>
                 <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
+                  <img src="https://lawrato.com/expert_images/thumb/webp/advocate-shweta-pandey.webp" alt="Lawyer" />
+                  <h3>Advocate Shweta Pandey</h3>
+                 
+                  <p>shweta.pandey@gmail.com</p>
                 </div>
                 <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
+                  <img src="https://lawrato.com/expert_images/thumb/webp/advocate-shweta-joshi.webp" alt="Lawyer" />
+                  <h3>Advocate Shweta Joshi</h3>
+                 
+                  <p>joshishweta@gmail.com</p>
                 </div>
                 <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
+                  <img src="https://lawrato.com/expert_images/thumb/advocate-a-p-khobragade.jpg" alt="Lawyer" />
+                  <h3>Advocate A P Khobragade</h3>
+                  
+                  <p>ap.khobragade@gmail.com</p>
                 </div>
                 <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
+                  <img src="https://lawrato.com/expert_images/thumb/webp/advocate-harshad-rathod.webp" alt="Lawyer" />
+                  <h3>Advocate Harshad Rathod</h3>
+                  
+                  <p>harshad.rathod@gmail.com</p>
                 </div>
                 <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
+                  <img src="https://lawrato.com/expert_images/thumb/webp/advocate-juhi-qureshi.webp" alt="Lawyer" />
+                  <h3>Advocate Juhi Qureshi</h3>
+                  
+                  <p>juhi@gmail.com</p>
                 </div>
                 <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
+                  <img src="https://lawrato.com/expert_images/thumb/webp/advocate-rani-sonawane.webp" alt="Lawyer" />
+                  <h3>Advocate Rani Sonawane</h3>
+                  
+                  <p>sonawanerani@gmail.com</p>
                 </div>
-                <div className="lawyer-card">
-                  <img src="https://via.placeholder.com/100" alt="Lawyer" />
-                  <h3>John Doe</h3>
-                  <p>Senior Lawyer</p>
-                  <p>john.doe@email.com</p>
-                </div>
+
                 {/* More cards can be added here */}
               </div>
             </div>
