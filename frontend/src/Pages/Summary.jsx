@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import "./css/Summary.scss";
@@ -10,8 +11,11 @@ import axios from "axios";
 import pdfToText from "react-pdftotext";
 import Load from "../assets/img/generateDocumentGIF.gif";
 
+// Initialize speech synthesis variables
 let speechSynthesisUtterance = null;
 let speechSynthesisState = "stopped";
+
+// Define language options for translation
 const languageOptions = {
   Hindi: "hi",
   Bengali: "bn",
@@ -28,7 +32,6 @@ const languageOptions = {
   Maithili: "mai",
   Sindhi: "sd",
   Konkani: "kok",
-
   English: "en",
   Spanish: "es",
   French: "fr",
@@ -46,7 +49,9 @@ const languageOptions = {
   Polish: "pl",
 };
 
+// Summary component
 const Summary = () => {
+  // Create references and state variables
   const summaryRef = useRef("");
   const [fileUploaded, setFileUploaded] = useState(false);
   const location = useLocation();
@@ -56,6 +61,7 @@ const Summary = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [language, setLanguage] = useState("en");
 
+  // Fetch summary from server when draftText changes
   useEffect(() => {
     const fetchSummary = async () => {
       setIsLoading(true);
@@ -76,6 +82,7 @@ const Summary = () => {
     }
   }, [draftText]);
 
+  // Update summary reference when summary changes
   useEffect(() => {
     if (summary !== summaryRef.current) {
       summaryRef.current = summary;
@@ -84,6 +91,7 @@ const Summary = () => {
     }
   }, [summary]);
 
+  // Handle file upload and text extraction
   const handleFileUpload = (event) => {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -108,14 +116,15 @@ const Summary = () => {
     }
   };
 
+  // Handle text input change
   const handleTextInputChange = (event) => {
     setInputText(event.target.value);
   };
 
+  // Handle summarize button click
   const handleSummarizeClick = async () => {
     setIsLoading(true);
     try {
-      console.log("bhai", inputText);
       const response = await axios.post("http://localhost:5000/api/summary", {
         inputText,
       });
@@ -127,10 +136,10 @@ const Summary = () => {
     }
   };
 
+  // Handle facts and figures button click
   const handleFactsClick = async () => {
     setIsLoading(true);
     try {
-      console.log("bhai", inputText);
       const response = await axios.post(
         "http://localhost:5000/api/factsandfigures",
         {
@@ -145,6 +154,7 @@ const Summary = () => {
     }
   };
 
+  // Handle language change for translation
   const handleLanguageChange = async (event) => {
     setIsLoading(true);
     const selectedLanguage = event.target.value;
@@ -163,6 +173,7 @@ const Summary = () => {
     }
   };
 
+  // Handle text-to-speech functionality
   const handleTextToSpeech = () => {
     if (speechSynthesisState === "playing") {
       // Pause speech synthesis if currently playing
@@ -183,6 +194,7 @@ const Summary = () => {
     }
   };
 
+  // Render the component
   return (
     <div className="main-containersum">
       <div className="sidebar-summary">
