@@ -168,6 +168,57 @@ app.post("/api/summary", async (req, res) => {
   }
 });
 
+app.post("/api/factsandfigures", async (req, res) => {
+  // console.log(req.body);
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  try {
+    const { inputText } = req.body;
+    // console.log(inputText);
+    if (!inputText) {
+      return res.status(400).json({ error: "Search query is required" });
+    }
+    const msg = await anthropic.messages.create({
+      model: "claude-3-opus-20240229",
+      max_tokens: 4000,
+      temperature: 0,
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "text",
+              text: `"${inputText}" give me facts and figures from document`,
+            },
+          ],
+        },
+      ],
+    });
+    // const msg = {
+    //   id: "msg_01H3ZUmn3UBcf4wcrjnLipiw",
+    //   type: "message",
+    //   role: "assistant",
+    //   content: [
+    //     {
+    //       type: "text",
+    //       text: "This is Summarized Text",
+    //     },
+    //   ],
+    //   model: "claude-3-opus-20240229",
+    //   stop_reason: "end_turn",
+    //   stop_sequence: null,
+    //   usage: {
+    //     input_tokens: 39,
+    //     output_tokens: 911,
+    //   },
+    // };
+    // console.log(msg.content[0].text); // Log the response from Anthropic SDK
+    res.json(msg); // Send the response back to the client
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.post("/api/oneai/summarize", async (req, res) => {
   console.log(req.body);
   try {
