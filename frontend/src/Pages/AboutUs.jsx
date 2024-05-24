@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import React from "react";
 import Heading from "../components/Heading.jsx";
 import "./css/AboutUs.scss";
@@ -12,6 +13,7 @@ import diksha from "../assets/img/diksha.jpg";
 import prasad from "../assets/img/prasad.jpg";
 import sonal from "../assets/img/sonal.jpg";
 
+// Define team member details
 const team = [
   {
     id: 1,
@@ -34,17 +36,16 @@ const team = [
   {
     id: 4,
     name: "Prasad Jadhav",
-    // exper: "Devops",
     cover: prasad,
   },
   {
     id: 5,
     name: "Sonal Gupta",
-    // exper: "Devops",
     cover: sonal,
   },
 ];
 
+// Define social media icons
 const socialIcon = [
   {
     icon: <FaFacebookF />,
@@ -64,29 +65,34 @@ const socialIcon = [
   },
 ];
 
+// AboutUs component
 const AboutUs = () => {
   return (
     <>
       <div className="main-containeraboutus">
+        {/* Sidebar section */}
         <div className="sidebar-aboutus">
           <SideBar />
         </div>
+        {/* Main content section */}
         <div className="main-aboutus">
           <div className="team">
             <div className="scontainer">
+              {/* Heading component */}
               <Heading subtitle="Our Professional" title="MEET OUR MEMBERS" />
-
+              {/* Team member details */}
               <div className="content grid2">
                 {team.map((val, index) => (
                   <div className="box" key={index}>
                     <div className="img">
                       <img src={val.cover} alt="img not found" />
-                      {/* console.log(val.cover) */}
                     </div>
                     <div className="name">
                       <h3>{val.name}</h3>
+                      {/* Uncomment to show experience */}
                       {/* <span>{val.exper}</span> */}
                     </div>
+                    {/* Social media icons */}
                     <div className="socialIcon">
                       {socialIcon.map((val, index) => (
                         <label key={index}>{val.icon}</label>
