@@ -15,37 +15,37 @@ const services = [
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/096baa1fa8926cc830d2564676dc77542d7807b59f3a9ffcef3159b248f0ee24?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Immigration assistance",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.",
+      "Immigration assistance involves helping individuals navigate the complex process of moving from one country to another.",
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/1c52431ad4b679f2cd2f90bcee32ef956a0e29b4e68db5715c487aaed654f86f?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Intellectual property",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.",
+      "Intellectual property involves the legal protection of creations of the mind.",
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/bc1f26c19013c6556cce7c68bb99da5e30fe05f92ea4502bc290b786d0e0a326?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Complaince lawyer",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.",
+      "It  ensures that a company or organization adheres to all relevant laws, regulations, and internal policies to avoid legal risks and penalties.",
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/2d7568cffbe602489e940249bfdb944e7fe7fa5dd66360693ec498b83c05af65?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Making a will",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.",
+      "It involves legally documenting your wishes regarding the distribution of your assets after your death.",
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/41538c00554f3262c0a24ec0a5a14355d63240c41310264670c662cb2da0ba7c?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Legal documentation",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.",
+      "Legal documentation involves preparing and managing legally binding documents",
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/e330311f461ca17c0f57514a07ef583dce5661f98778dcb1238b3c2dae57738a?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Estate planning",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.",
+      "It involves organizing and preparing the management and disposal of your assets during your life and after death.",
   },
 ];
 

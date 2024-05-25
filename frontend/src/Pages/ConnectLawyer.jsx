@@ -27,7 +27,7 @@ const ConnectLawyer = () => {
           </h1>
           <div className="lorem">
             <p>
-            Need legal guidance? Connect with our expert legal advisor for personalized support and tailored advice
+            Need legal guidance? Connect with our expert legal advisor for personalized support and advice
             </p>
           </div>
           <button className="talk-button" onClick={togglePopup}>
