@@ -17,28 +17,28 @@ const services = [
       "https://cdn.builder.io/api/v1/image/assets/TEMP/971809a51e9a33c4040930c720279dc4984f3e9a3ecc3df010c14c149401119e?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Immigration",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Est sapien curabitur.",
+      "involves helping individuals navigate the complex process of moving from one country to another.",
   },
   {
     imageSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/374877fe4d55e0768b497479f1aac481f2cd9a9a70284393a1e48c5aec6f93b5?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Matrimonial",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Est sapien curabitur.",
+      "a marriage license, proof of identity and age, and any prior divorce decrees or death certificates",
   },
   {
     imageSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/86aeca6151806a274609254724031c30473a60994474552a82cb15db6433707d?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Property",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Est sapien curabitur.",
+      "involves the legal protection of creations of the mind.",
   },
   {
     imageSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/6eb9e65f2318249e4492e0fc5f8e918fdaa6ff7343b9c471e9800a1e16349c42?apiKey=04351964dd7545f89dcab8564e56e924&",
     title: "Personal",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Est sapien curabitur.",
+      "need identification documents, proof of residency , financial records, and legal agreements",
   },
 ];
 
